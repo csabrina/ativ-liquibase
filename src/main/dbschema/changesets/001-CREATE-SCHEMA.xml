@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Tabela Taylor Swift -->
+    <changeSet id="Criando tabela taylor_swift" author="csabrina (generated)">
+        <createTable tableName="taylor_swift">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_nascimento" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pais_origem" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabela Album -->
+    <changeSet id="Criando tabela album" author="dinizhugo">
+        <createTable tableName="album">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_lancamento" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tipo" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabela Musica -->
+    <changeSet id="Criando tabela musica" author="dinizhugo">
+        <createTable tableName="musica">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nome" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duracao" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="album_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="musica"
+                baseColumnNames="album_id"
+                constraintName="fk_musica_album"
+                referencedTableName="album"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- Tabela Show -->
+    <changeSet id="Criando tabela show" author="dinizhugo">
+        <createTable tableName="show">
+            <column name="id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="local" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data_show" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="taylor_swift_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="show"
+                baseColumnNames="taylor_swift_id"
+                constraintName="fk_show_taylor_swift"
+                referencedTableName="taylor_swift"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
