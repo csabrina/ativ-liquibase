@@ -25,7 +25,7 @@
     </changeSet>
 
     <!-- Tabela Album -->
-    <changeSet id="Criando tabela album" author="dinizhugo">
+    <changeSet id="Criando tabela album" author="csabrina (generated)">
         <createTable tableName="album">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
@@ -43,7 +43,7 @@
     </changeSet>
 
     <!-- Tabela Musica -->
-    <changeSet id="Criando tabela musica" author="dinizhugo">
+    <changeSet id="Criando tabela musica" author="csabrina (generated)">
         <createTable tableName="musica">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
@@ -67,7 +67,7 @@
     </changeSet>
 
     <!-- Tabela Show -->
-    <changeSet id="Criando tabela show" author="dinizhugo">
+    <changeSet id="Criando tabela show" author="csabrina (generated)">
         <createTable tableName="show">
             <column name="id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
